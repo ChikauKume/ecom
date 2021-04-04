@@ -15,6 +15,12 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
+<script type="text/javascript">
+  function confirmDelete(){
+    return confirm('Are you sure you want to delete ?');
+  }
+</script>
+
 <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>

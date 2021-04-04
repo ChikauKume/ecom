@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/index/test', function(){
+    return view('test');
+});
+
+Route::resource('category', 'CategoryController');
+Route::resource('subcategory', 'SubCategoryController');
