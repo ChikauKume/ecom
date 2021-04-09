@@ -26,3 +26,4 @@ Route::get('/index/test', function(){
 
 Route::resource('category', 'CategoryController');
 Route::resource('subcategory', 'SubCategoryController');
+Route::resource('product', 'ProductController');

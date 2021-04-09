@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Subcategory;
 use Illuminate\Http\Request;
 
-class SubCategoryController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::all();
-        return view('admin.subcategory.index',compact('subcategories'));
+        //
     }
 
     /**
@@ -25,7 +23,7 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.subcategory.create');
+        //
     }
 
     /**
@@ -36,17 +34,7 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name' => 'required|min:3',
-            'category' => 'required',
-        ]);
-
-        Subcategory::create([
-            'name' => $request->name,
-            'category_id' => $request->category,
-        ]);
-        notify()->success('Created subcategory successfully');
-        return redirect()->back();
+        //
     }
 
     /**
@@ -68,8 +56,7 @@ class SubCategoryController extends Controller
      */
     public function edit($id)
     {
-        $subcategory = Subcategory::find($id);
-        return view('admin.subcategory.edit', compact('subcategory'));
+        //
     }
 
     /**
@@ -79,28 +66,19 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subcategory $sub, $id)
+    public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'name' => 'required|min:3',
-            'category' => 'required',
-        ]);
-
-        $sub->updateSubcategory($id,$request->all());
-        notify()->success('Update subcategory successfully');
-        return redirect()->route('subcategory.index');
+        //
     }
 
-    /**\
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subcategory $sub,$id)
+    public function destroy($id)
     {
-        $sub->remove($id);
-        notify()->success('Deleted subcategory successfully');
-        return redirect()->route('subcategory.index');
+        //
     }
 }
