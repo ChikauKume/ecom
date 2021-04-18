@@ -27,7 +27,7 @@ class HomeController extends Controller
             return redirect()->to('auth/dashboard');
         }
         else{
-            return view('home');
+            return redirect()->to('/');
         }
     }
 }

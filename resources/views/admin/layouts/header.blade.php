@@ -23,6 +23,6 @@
 
 <style>
     .inset-0{
-        z-index: 10 !important
+        z-index: 100 !important
     }
 </style>

@@ -50,11 +50,15 @@
         @endif            
       </table>
       <hr>
-      <div class="card-footer">
-          <button class="btn btn-info text-white">Continue shopping</button>
-          <span class="ml-3">Total Price : ${{ $cart->totalPrice }}</span>
-          <button class="btn btn-info float-right">Checkout</button>
-      </div>
+    @if ($cart)
+        <div class="card-footer">
+            <button class="btn btn-info text-white">Continue shopping</button>
+            <span class="ml-3">Total Price : ${{ $cart->totalPrice }}</span>
+            <a href="{{ route('checkout.cart', $cart->totalPrice) }}">
+                <button class="btn btn-info float-right">Checkout</button>
+            </a>
+        </div>
+    @endif
 </div>
 
 @endsection

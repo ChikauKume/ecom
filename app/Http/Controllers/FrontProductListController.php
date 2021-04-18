@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Slider;
 use App\Product;
 use App\Category;
 use App\Subcategory;
-use App\Slider;
+use Illuminate\Http\Request;
+use Auth;
+
 class FrontProductListController extends Controller
 {
     public function index(){
@@ -19,8 +21,12 @@ class FrontProductListController extends Controller
     	$randomItemProducts = Product::whereNotIn('id',$randomActiveProductIds)->limit(3)->get();
         // $sliders = Slider::get();
 
-      
-    	return view('product',compact('products','randomItemProducts','randomActiveProducts'));
+        if(Auth::check()){
+            return view('product',compact('products','randomItemProducts','randomActiveProducts'));
+        }
+        else{
+            return redirect()->to('/login');
+        }
     }
 
     public function show($id){
