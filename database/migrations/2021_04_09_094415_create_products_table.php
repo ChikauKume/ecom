@@ -20,7 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->string('description');
             $table->string('additional_info');
-            $table->string('category_id');
+            $table->integer('category_id');
+            $table->integer('subcategory_id')->nullable();
             $table->timestamps();
         });
     }

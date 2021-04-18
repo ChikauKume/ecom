@@ -52,8 +52,8 @@
       <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Product</h6>
-          <a class="collapse-item" href="{{ route('subcategory.index') }}">View</a>
-          <a class="collapse-item" href="{{ route('subcategory.create') }}">Create</a>
+          <a class="collapse-item" href="{{ route('product.index') }}">View</a>
+          <a class="collapse-item" href="{{ route('product.create') }}">Create</a>
         </div>
       </div>
     </li>
@@ -116,7 +116,19 @@
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Charts</span>
       </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}Logout
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+      </div>
     </li>
+    <li class="nav-item">
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
   </ul>
