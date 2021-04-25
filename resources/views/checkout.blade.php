@@ -48,7 +48,7 @@
   </thead>
   <tbody>
 
-    {{-- @if($cart)
+    @if($cart)
   @php $i=1 @endphp
 
 @foreach($cart->items as $product)
@@ -66,14 +66,14 @@
       </td>
     </tr>
    @endforeach
-   @endif --}}
+   @endif
 
 
 
   </tbody>
 </table>
 <hr>
-{{-- Total Price:${{$cart->totalPrice}} --}}
+Total Price:${{$cart->totalPrice}}
 </div>
 
  	<div class="col-md-6">

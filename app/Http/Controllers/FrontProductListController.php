@@ -19,10 +19,10 @@ class FrontProductListController extends Controller
     		array_push($randomActiveProductIds,$product->id);
     	}
     	$randomItemProducts = Product::whereNotIn('id',$randomActiveProductIds)->limit(3)->get();
-        // $sliders = Slider::get();
+        $sliders = Slider::get();
 
         if(Auth::check()){
-            return view('product',compact('products','randomItemProducts','randomActiveProducts'));
+            return view('product',compact('products','randomItemProducts','randomActiveProducts','sliders'));
         }
         else{
             return redirect()->to('/login');
@@ -77,4 +77,16 @@ class FrontProductListController extends Controller
         return $product;
     }
 
+
+    public function moreProducts(Request $request){
+        if($request->search){
+            $products = Product::where('name','like','%'.$request->search.'%')
+            ->orWhere('description','like','%'.$request->search.'%')
+            ->orWhere('additional_info','like','%'.$request->search.'%')
+            ->paginate(50);
+            return view('all-product', compact('products'));
+        }
+        $products = Product::latest()->paginate(3);
+        return view('all-product', compact('products'));
+    }
 }

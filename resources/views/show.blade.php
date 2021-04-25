@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <hr>
-                    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase">
+                    <a href="{{ route('add.cart',[$product->id]) }}" class="btn btn-lg btn-outline-primary text-uppercase">
                         Add to cart
                     </a>
                 </section>
@@ -62,7 +62,9 @@
                                     <a href="/product/{{ $prod->id }}">
                                         <button type="button" class="btn btn-sm btn-outline-success">View</button>
                                     </a>
-                                    <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
+                                    <a href="{{ route('add.cart',[$product->id]) }}">
+                                        <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
+                                    </a>
                                 </div>
                                 <small class="text-muted">9 mins</small>
                             </div>

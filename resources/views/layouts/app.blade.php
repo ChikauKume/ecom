@@ -42,6 +42,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @if (Auth::check())
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="{{ route('order') }}">Order</a>
+                            </li>
+                        @endif
                         <!-- Authentication Links -->
                         <a href="{{ route('cart.show') }}" class="nav-link">
                             <span class="fas fa-shopping-cart">

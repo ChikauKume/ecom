@@ -20,6 +20,7 @@ Route::get('/category/{name}', 'FrontProductListController@allProduct')->name('p
 
 Auth::routes();
 
+Route::get('all/products', 'FrontProductListController@moreProducts')->name('more.product');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'auth', 'middleware' => ['auth','isAdmin']], function(){
@@ -30,8 +31,11 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth','isAdmin']], function(
     Route::resource('subcategory', 'SubCategoryController');
     Route::resource('product', 'ProductController');
     Route::get('subcategories/{id}','ProductController@loadSubcategories');
+    Route::get('slider', 'SliderController@index')->name('slider.index');
+    Route::get('slider/create', 'SliderController@create')->name('slider.create');
+    Route::post('slider', 'SliderController@store')->name('slider.store');
+    Route::delete('slider/{id}', 'SliderController@destroy')->name('slider.destroy');
 });
-
 
 Route::get('/addToCart/{product}', 'CartController@addToCart')->name('add.cart');
 Route::get('/cart', 'CartController@showCart')->name('cart.show');
@@ -42,3 +46,6 @@ Route::get('/checkout/{amount}','CartController@checkout')
 ->name('checkout.cart')->middleware('auth');
 
 Route::post('/charge','CartController@charge')->name('charge.cart');
+Route::get('/orders', 'CartController@order')->name('order')->middleware('auth');
+
+

@@ -3,16 +3,27 @@
 @section('content')
 <div class="container">
     <main> 
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Album example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
-            </div>
+        <section class="jumbotron text-center">
+            <div class="container">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($sliders as $key => $slider)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <center>
+                                    <img src="{{ Storage::url($slider->image) }}" width="30%">
+                                </center>
+                            </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
         </section>
         <h2>Category</h2>
@@ -51,6 +62,9 @@
                 @endforeach
             </div>
         </div>
+        <center>
+            <button class="my-3 btn btn-success">More Product</button>
+        </center>
         <div class="jumbotron">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
